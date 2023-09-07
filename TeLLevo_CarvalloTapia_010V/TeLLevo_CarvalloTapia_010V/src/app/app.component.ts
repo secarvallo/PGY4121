@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+interface Componente{
+  icon: string;
+  name: string;
+  redirecTo: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private menuController: MenuController) { }
-
-  ngOnInit() {
-  }
-
-  MostrarMenu(){
-    this.menuController.open('first');
-  }
+  constructor() {}
+  componentes : Componente[] = [
+    {
+      name: 'login',
+      redirecTo: '/login',
+      icon: 'person-circle-sharp'
+    },
+  ]
 }
