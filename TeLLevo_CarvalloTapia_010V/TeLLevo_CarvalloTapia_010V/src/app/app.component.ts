@@ -13,9 +13,10 @@ export class AppComponent {
   constructor() {}
   componentes : Componente[] = [
     {
-      name: 'login',
+      name: 'Sign in',
       redirecTo: '/login',
       icon: 'person-circle-sharp'
     },
   ]
+  
 }
