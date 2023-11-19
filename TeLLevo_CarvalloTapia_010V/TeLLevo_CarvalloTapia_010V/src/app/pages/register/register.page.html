@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Sign Up</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -27,8 +30,7 @@
             labelPlacement="floating"
             helperText="Enter a valid username"
             errorText="Invalid username"
-            ngModel
-            username
+            [(ngModel)]="username"
           ></ion-input>
           <ion-input
             type="email"

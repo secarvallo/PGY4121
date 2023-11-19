@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Weather</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card class="ion-align-self-center">
+    <ion-grid size="12" *ngFor="let weather of weathers">
+      <ion-row>
+        <ion-col size="12">
+          <ion-title>EL TIEMPO AHORA</ion-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-md="4" size-lg="2" class="size-font-temp">
+          <ion-row class="ion-justify-content-end">
+            {{weather.main.temp | number:'2.0-0'}}°c
+          </ion-row>
+        </ion-col>
+        <ion-col size="6" size-md="4" size-lg="2" class="size-font">
+          <ion-row class="ion-justify-content-start">
+            <ion-col size="12">T° Max {{weather.main.temp_max | number:'2.0-0'}}°c</ion-col>
+            <ion-col size="12">T° Min {{weather.main.temp_min | number:'2.0-0'}}°c</ion-col>
+            <ion-col size="12">ReelFeels {{weather.main.feels_like | number:'2.0-0'}}°c</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="12">
+          <ion-row>
+            Humedad {{weather.main.humidity | number:'2.0-0'}}% <br>
+            Presión {{weather.main.pressure | number:'2.0-0'}} mb <br>
+            Ráfagas de Viento {{weather.wind.speed | number:'1.0-0'}} km/h
+          </ion-row>
+        </ion-col>
+        <ion-col size="12">
+          {{weather.name}}
+          {{weather.sys.country}}
+         <!--  {{weather.sys.sunrise | date:'HH:mm'}} -->
+          (UTC) {{weather.timezone/3600}}
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>
+
+
+
+
+
+  <!-- Main
+  <ion-card-title >{{weather.main.temp}}</ion-card-title>
+  <ion-card-title >{{weather.main.feels_like}}</ion-card-title>
+  <ion-card-title >{{weather.main.temp_min}}</ion-card-title>
+  <ion-card-title >{{weather.main.temp_max}}</ion-card-title>
+  <ion-card-title >{{weather.main.pressure}}</ion-card-title>
+  <ion-card-title >{{weather.main.humidity}}</ion-card-title>
+  <ion-card-subtitle >{{weather.main.sea_level}}</ion-card-subtitle>
+  <ion-card-subtitle >{{weather.main.grnd_level}}</ion-card-subtitle>
+  <ion-card-subtitle >{{weather.main.temp_max}}</ion-card-subtitle>
+  -->
+  <!-- Wind 
+  <ion-card-title>{{weather.wind.speed}}</ion-card-title>
+  <ion-card-title>{{weather.wind.deg}}</ion-card-title>
+  <ion-card-title>{{weather.wind.gust}}</ion-card-title> 
+  -->
+  <!-- WeathersServicies 
+  <ion-card-title>{{weather.base}}</ion-card-title>
+  <ion-card-title>{{weather.visibility}}</ion-card-title>
+  <ion-card-title>{{weather.dt}}</ion-card-title>
+  <ion-card-title>{{weather.timezone}}</ion-card-title>
+  <ion-card-title>{{weather.name}}</ion-card-title>
+  <ion-card-title>{{weather.cod}}</ion-card-title> 
+  -->
+  <!-- Sys 
+  <ion-card-title>{{weather.sys.country}}</ion-card-title>
+  <ion-card-title>{{weather.sys.sunrise}}</ion-card-title>
+  <ion-card-title>{{weather.sys.sunset}}</ion-card-title>
+  -->
+  <!-- CLoud
+  <ion-card-title>{{weather.clouds.all}}</ion-card-title>
+  -->
+    
+  <!-- Weathers
+  <ion-card-title>{{weather.weather.main}}</ion-card-title>
+  <ion-card-title>{{weather.weather.description}}</ion-card-title>
+  <ion-card-title>{{weather.weather.icon}}</ion-card-title>
+  -->
+  <!-- <ion-card-title>{{weather.coord.lon}}</ion-card-title>
+  <ion-card-title>{{weather.coord.lat}}</ion-card-title> 
+  -->

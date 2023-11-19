@@ -17,6 +17,16 @@ export class AppComponent {
       redirecTo: '/login',
       icon: 'person-circle-sharp'
     },
+    {
+      name: 'Register',
+      redirecTo: '/register',
+      icon: 'id-card'
+    },
+    {
+      name: 'weather',
+      redirecTo: '/weather',
+      icon: 'rainy'
+    },
   ]
   
 }
