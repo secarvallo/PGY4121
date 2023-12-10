@@ -31,7 +31,22 @@ const routes: Routes = [
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
   },
-
+  {
+    path: 'listar',
+    loadChildren: () => import('./pages/listar/listar.module').then( m => m.ListarPageModule)
+  },
+  {
+    path: 'detail-user/:id',
+    loadChildren: () => import('./pages/detail-user/detail-user.module').then( m => m.DetailUserPageModule)
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'delete/:id',
+    loadChildren: () => import('./pages/delete/delete.module').then( m => m.DeletePageModule)
+  },
 ];
 
 @NgModule({

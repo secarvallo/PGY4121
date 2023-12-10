@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>listar</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">listar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <p>listar</p>
+      <ion-list> 
+        <ion-item *ngFor="let item of users; let i = index" [routerLink]= "['/detail-user', item.id ]" >
+          <ion-label>{{item['username']}} &nbsp; {{item['email']}} </ion-label>
+        </ion-item>
+      </ion-list>
+  </div>
+</ion-content>

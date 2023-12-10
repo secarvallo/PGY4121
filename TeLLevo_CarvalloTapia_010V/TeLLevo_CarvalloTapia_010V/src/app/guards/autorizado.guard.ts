@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../servicios/auth.service';
 import { ToastController } from '@ionic/angular';
@@ -8,10 +8,10 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class AutorizadoGuard  {
-  constructor(private authservice: AuthService,
-              private router: Router,
-              private toastcontroller: ToastController){
-
+  constructor(
+    private authservice: AuthService,
+    private router: Router,
+    private toastcontroller: ToastController){
   }
   canActivate():
     | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

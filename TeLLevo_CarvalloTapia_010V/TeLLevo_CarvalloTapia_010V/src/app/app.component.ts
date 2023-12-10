@@ -23,7 +23,12 @@ export class AppComponent {
       icon: 'id-card'
     },
     {
-      name: 'weather',
+      name: 'Listar',
+      redirecTo: '/listar',
+      icon: 'reader'
+    },
+    {
+      name: 'Weather',
       redirecTo: '/weather',
       icon: 'rainy'
     },

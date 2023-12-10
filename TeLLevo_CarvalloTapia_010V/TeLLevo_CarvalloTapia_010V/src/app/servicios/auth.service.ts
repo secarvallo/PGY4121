@@ -1,20 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { Users } from '../pages/interfaces/interfaces';
+import { InterfaceRegister } from '../pages/interfaces/InterfaceRegister';
 
-@Injectable({providedIn: 'root'})
-
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
-  constructor(  private httpclient: HttpClient) { }
-  getAllUsers():Observable<Users>{
-    return this.httpclient.get<Users>(`${environment.apiUrl}/usuarios`);
-  }
-  getUserByName(name:any):Observable<Users>{
-    return this.httpclient.get<Users>(`${environment.apiUrl}/usuarios/?username=${name}`);
-  }
-  IsloggedIn(){
-    return sessionStorage.getItem('username')!=null;
-  }
+
+  constructor(
+
+    private httpclient : HttpClient,
+
+  ) { }
+
+GetUserById( codigo: any ): Observable<InterfaceRegister>{
+  return this.httpclient.get<InterfaceRegister>(`${environment.HOST_URL}/users/?username=${codigo}`);
+}
+//IsLoggedIn(): nos devuelve username en caso de que sea distinto a null.
+IsLoggedIn(){
+  return sessionStorage.getItem('username') != null;
+}
+//GetUserrole(): nos devuelve el tipo de usuario conectado.
+GetUserRole(){
+  return sessionStorage.getItem('userrole')!= null ? sessionStorage.getItem('userrole')?.toString() : ''
+}
+
 }

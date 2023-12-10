@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>update</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">update</ion-title>
+    </ion-toolbar>
+    <form>
+      <ion-item lines = "full">
+        <ion-label position="floating">Nombre?:</ion-label>
+        <ion-input type="text" name = "txtNombre" [(ngModel)]="user.username" placeholder="username" required></ion-input>
+      </ion-item>
+      <ion-item lines = "full">
+        <ion-label position="floating">email?:</ion-label>
+        <ion-input type="text" name = "txtEmail" [(ngModel)]="user.email" placeholder="email" required></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="updateUser()">Actualizar</ion-button>
+    </form>
+
+  </ion-header>
+</ion-content>

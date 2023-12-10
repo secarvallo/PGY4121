@@ -17,22 +17,28 @@
 
 <!--Login-->
 <ion-content class="ion-padding">    
-    <form [formGroup]="formularioLogin">
+    <form [formGroup]="formLogin" (ngSubmit)="loginUser">
         <ion-item class="ion-padding-bottom">
             <ion-input 
                 formControlName="username"
                 type="text"
-                [counter]="true"
-                maxlength="20"
                 fill="solid"
                 label="Username or Email"
                 labelPlacement="floating"
                 helperText="Enter a valid Username or email"
                 errorText="Invalid email"
-                ngModel
-                email
             ></ion-input>
         </ion-item>
+
+        <div *ngIf="formLogin.get('username')?.invalid &&  (formLogin.get('username')?.dirty || formLogin.get('username')?.touched)">
+            <div style="color: red " *ngIf="formLogin.get('username')?.hasError('required')">
+                *Username es Obligatoria
+            </div>
+            <div style="color:red" *ngIf="formLogin.get('username')?.hasError('minlength')">
+                *Username debe tener al menos 3 caracteres
+            </div>
+        </div>
+
         <ion-item>
             <ion-input                   
                 formControlName="password"
@@ -40,16 +46,26 @@
                 label="Password"
                 labelPlacement="floating"
                 helperText=""
-                errorText="Invalid password"
-                ngModel>
+                errorText="Invalid password">
               </ion-input>
               <ion-icon slot="end" name="eye" [color]="passwordFieldType === 'text' ? 'dark' : 'gray'" (click)="togglePasswordVisibility()"></ion-icon>
         </ion-item>
+
+        <div style="color: red" *ngIf="formLogin.get('password')?.invalid && (formLogin.get('password')?.dirty || formLogin.get('password')?.touched)">
+            <div *ngIf="formLogin.get('password')?.hasError('required')">
+                *Password es Obligatoria
+            </div>
+            <div style="color: red" *ngIf="formLogin.get('password')?.hasError('minlength')">
+                *Password debe tener al menos 6 caracteres
+            </div>
+        </div>
+
+        
     </form>
     
 <ion-grid class="ion-padding">
     <ion-row>
-        <ion-button shape="round" class="center">Sign in</ion-button>
+        <ion-button  (click)= "loginUser()" shape="round" class="center">Sign in</ion-button>
     </ion-row>
     <ion-row>
         <ion-text class="center">
