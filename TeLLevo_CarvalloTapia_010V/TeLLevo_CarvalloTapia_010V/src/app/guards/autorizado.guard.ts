@@ -17,7 +17,8 @@ export class AutorizadoGuard  {
     | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         if(! this.authservice.IsLoggedIn()){
             this.showToast('Debe iniciar sesión');
-            this.router.navigateByUrl("/login");
+            this.router.navigate(['/login']);
+            return false;
         }
         this.authservice.IsLoggedIn();
         return true;

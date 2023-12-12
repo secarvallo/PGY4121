@@ -1,14 +1,3 @@
 {
-  "users": [
-    {
-      "username": "secarvallo",
-      "email": "secarvallo@gmail.com",
-      "phoneNumber": "56995068384",
-      "password": "1234",
-      "confirmPassword": "1234",
-      "role": "",
-      "isactive": true,
-      "id": 4
-    }
-  ]
+  "users": []
 }

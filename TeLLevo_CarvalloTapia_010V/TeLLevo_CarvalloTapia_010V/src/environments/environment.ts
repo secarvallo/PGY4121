@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   HOST_URL :'http://localhost:3300',
   API_KEY : '02e075243abae3cd3c18f223dbeb6b98',
-  API_URL :'https://api.openweathermap.org/data/2.5/'
+  API_URL :'https://api.openweathermap.org/data/2.5/',
+  API_MAP_KEY: 'pk.eyJ1Ijoic2VjYXJ2YWxsbyIsImEiOiJjbHExOWdjeWcwNm5nMmpvMDd4cWZqd255In0.DOicbrPtsTekSLEkbhQpYA'
 };
 
 /*

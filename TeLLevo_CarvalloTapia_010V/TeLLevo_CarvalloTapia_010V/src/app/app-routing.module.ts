@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutorizadoGuard } from './guards/autorizado.guard';
+
 
 const routes: Routes = [
   {
@@ -20,33 +22,43 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'weather',
+    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule),
+    canActivate: [ AutorizadoGuard]
+  },
+  {
+    path: 'listar',
+    loadChildren: () => import('./pages/listar/listar.module').then( m => m.ListarPageModule),
+    canActivate: [ AutorizadoGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule),
+
+  },
+  {
+    path: 'detail-user/:id',
+    loadChildren: () => import('./pages/detail-user/detail-user.module').then( m => m.DetailUserPageModule),
+    canActivate: [ AutorizadoGuard]
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule),
+    canActivate: [ AutorizadoGuard]
+  },
+  {
+    path: 'delete/:id',
+    loadChildren: () => import('./pages/delete/delete.module').then( m => m.DeletePageModule),
+    canActivate: [ AutorizadoGuard]
+  },
+  {
     path: 'reset',
     loadChildren: () => import('./pages/reset/reset.module').then( m => m.ResetPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'weather',
-    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
-  },
-  {
-    path: 'listar',
-    loadChildren: () => import('./pages/listar/listar.module').then( m => m.ListarPageModule)
-  },
-  {
-    path: 'detail-user/:id',
-    loadChildren: () => import('./pages/detail-user/detail-user.module').then( m => m.DetailUserPageModule)
-  },
-  {
-    path: 'update/:id',
-    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
-  },
-  {
-    path: 'delete/:id',
-    loadChildren: () => import('./pages/delete/delete.module').then( m => m.DeletePageModule)
-  },
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsModule),
+  }
 ];
 
 @NgModule({

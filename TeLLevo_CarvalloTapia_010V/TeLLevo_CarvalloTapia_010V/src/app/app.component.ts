@@ -32,6 +32,11 @@ export class AppComponent {
       redirecTo: '/weather',
       icon: 'rainy'
     },
+    {
+      name: 'Maps',
+      redirecTo: '/maps',
+      icon: 'map'
+    },
   ]
   
 }
